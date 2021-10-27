@@ -2,3 +2,5 @@
 .idea
 thumbs.db
 node_modules
+*.css.map
+.vscode/*
