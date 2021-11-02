@@ -10,7 +10,7 @@ categoryD [list of movies from cat. D]
 
 
 
-starting page:
+starting section:
 create form in js with input field for user name and submit button w/ text "start the quiz"
 show the submit form
 ON SUBMIT:
@@ -42,8 +42,8 @@ save category to variable quizResult
 send variable quizResult to firebase
 scroll down to result page
 
-result page:
-GET result from 
+result section:
+GET result from quizResult variable
 IF quizResult = A, show random movie from array CategoryA 
 ELSE IF quizResult = B, show random movie from array CategoryB
 ELSE IF quizResult = C, show random movie from array CategoryC
