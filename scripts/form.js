@@ -12,7 +12,7 @@ categoryD [list of movies from cat. D]
 
 starting section:
 create form in js with input field for user name and submit button w/ text "start the quiz"
-show the submit form
+show the submit form (?)
 ON SUBMIT:
     read the input value 
     save input to variable userName
