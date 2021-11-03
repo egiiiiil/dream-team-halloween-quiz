@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+/* FIRST SECTION      */
+#section_start {
+	height: 100vh;
+	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
+}
+
+input[type="text"] {
+	font-size: 2rem;
+}
+
+#btn__submit {
+	background-color: rgb(197, 194, 194);
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	font-size: 2rem;
+	margin-top: 1rem;
+	width: 15rem;
+	padding: 1rem;
+	border-radius: 15px;
+}
+
+/* SECOND SECTION   */
+#section_1 {
+	height: 100vh;
+	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
+}
+
+#answer_wrapper {
+	display: grid;
+	align-content: center;
+	grid-template-columns: auto auto;
+}
+
+.answers {
+	background: white;
+	width: 9rem;
+	height: 9rem;
+	border-radius: 15px;
+	margin: 1rem;
+	margin-top: 2rem;
+}
