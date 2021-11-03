@@ -1,0 +1,23 @@
+{
+  "name": "dream-team-halloween-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egiiiiil/dream-team-halloween-quiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/egiiiiil/dream-team-halloween-quiz/issues"
+  },
+  "homepage": "https://github.com/egiiiiil/dream-team-halloween-quiz#readme",
+  "dependencies": {
+    "firebase": "^9.2.0",
+    "prettier": "^2.4.1"
+  }
+}
