@@ -1,5 +1,11 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import {
+	getFirestore,
+	collection,
+	addDoc,
+	getDocs,
+} from "firebase/firestore/lite";
+// import "./layout.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,19 +22,22 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 //Add to firebase
-async function addName() {
-	var name = readInput("name");
-	var age = readInput("age");
-	if (!name) return null;
+async function addNameToFirebase() {
+	var userName = readInput("userNameInput");
+	if (!userName) return null;
 	try {
-		const docRef = await addDoc(collection(db, "names"), {
-			name: name,
-			age: age,
+		const docRef = await addDoc(collection(db, "user-names"), {
+			name: userName,
 		});
-		clearInput("name");
-		clearInput("age");
-		displayNamesInList("listOfNames");
+		// clearInput("userNameInput");
 	} catch (e) {
 		console.error("Error adding document: ", e);
 	}
+}
+
+function readInput(id) {
+	if (!document.getElementById(id) && !document.getElementById(id).value)
+		return null;
+	console.log(document.getElementById(id).value);
+	return document.getElementById(id).value;
 }

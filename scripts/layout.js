@@ -1,26 +1,34 @@
 const sectionStart = document.getElementById("section_start");
 const section1 = document.getElementById("section_1");
 
+const startButton = document.createElement("button");
+
 function createForm() {
 	let form = document.createElement("form");
 	let input = document.createElement("input");
 	input.type = "text";
-	//Add label
-	input.value = "First name";
-	input.id = "form";
+	//TODO Add label
+	input.placeholder = "First name";
+	input.id = "userNameInput";
+
+	startButton.innerHTML = "start the quiz";
+	startButton.type = "submit";
+	startButton.id = "startButton";
+
 	form.append(input);
-	sectionStart.appendChild(input);
+	form.append(startButton);
+	sectionStart.appendChild(form);
 }
 //Anchor
-function createBtn(btnId, btnText, link, btnClass) {
-	let btn = document.createElement("a");
-	btn.setAttribute("href", link);
-	btn.id = btnId;
-	btn.innerHTML = btnText;
-	btn.className = btnClass;
-
-	return btn;
-}
+// function createBtn(btnId, btnText, link, btnClass) {
+// 	let btn = document.createElement("a");
+// 	btn.setAttribute("href", link);
+// 	btn.id = btnId;
+// 	btn.innerHTML = btnText;
+// 	btn.className = btnClass;
+//
+// 	return btn;
+// }
 
 function createDiv(id, className, appendPlace) {
 	let div = document.createElement("div");
@@ -36,17 +44,17 @@ function sectionStartPage() {
 	createForm();
 
 	// Create and append submit btn
-	const submitBtn = createBtn(
-		"btn__submit",
-		"start the quiz",
-		"#section_1",
-		"btn"
-	);
-	sectionStart.append(submitBtn);
+	// const submitBtn = createBtn(
+	// 	"btn__submit",
+	// 	"start the quiz",
+	// 	"#section_1",
+	// 	"btn"
+	// );
+	// sectionStart.append(submitBtn);
 }
 sectionStartPage();
 
-//Redo to constructor to be reusable 
+//Redo to constructor to be reusable
 function createSectionForQuestionsAndAnswers() {
 	console.log("Section1");
 	let questionText = document.createElement("h1");
@@ -60,4 +68,4 @@ function createSectionForQuestionsAndAnswers() {
 	const answer3 = createDiv("option3", "answers", answerGridWrapper);
 	const answer4 = createDiv("option4", "answers", answerGridWrapper);
 }
-createSectionForQuestionsAndAnswers() 
+createSectionForQuestionsAndAnswers();
