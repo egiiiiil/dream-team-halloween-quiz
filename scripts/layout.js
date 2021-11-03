@@ -1,13 +1,17 @@
 const sectionStart = document.getElementById("section_start");
-const section1 = document.getElementById("section_1");
+const bodyScript = document.querySelector("body");
 
 const startButton = document.createElement("button");
 
 function createForm() {
+	let label = document.createElement("label");
 	let form = document.createElement("form");
 	let input = document.createElement("input");
+
 	input.type = "text";
-	//TODO Add label
+	//DONE Add label
+	label.innerHTML = "Add your name:"
+
 	input.placeholder = "First name";
 	input.id = "userNameInput";
 
@@ -15,20 +19,25 @@ function createForm() {
 	startButton.type = "submit";
 	startButton.id = "startButton";
 
+	form.append(label);
 	form.append(input);
 	form.append(startButton);
 	sectionStart.appendChild(form);
 }
-//Anchor
-// function createBtn(btnId, btnText, link, btnClass) {
-// 	let btn = document.createElement("a");
-// 	btn.setAttribute("href", link);
-// 	btn.id = btnId;
-// 	btn.innerHTML = btnText;
-// 	btn.className = btnClass;
-//
-// 	return btn;
-// }
+// Anchor
+function createBtn(btnId, btnText, link, btnClass) {
+	let anchor = document.createElement("a");
+	let button = document.createElement("button");
+	anchor.setAttribute("href", link);
+
+	button.id = btnId;
+	button.innerHTML = btnText;
+	anchor.className = anchorClass;
+	button.className = btnClass;
+
+	anchor.append(button);
+	return anchor;
+}
 
 function createDiv(id, className, appendPlace) {
 	let div = document.createElement("div");
@@ -54,18 +63,23 @@ function sectionStartPage() {
 }
 sectionStartPage();
 
-//Redo to constructor to be reusable
-function createSectionForQuestionsAndAnswers() {
-	console.log("Section1");
-	let questionText = document.createElement("h1");
-	questionText.innerHTML = "question";
-	section1.append(questionText);
 
-	let answerGridWrapper = createDiv("answer_wrapper", "wrapper", section1);
-	//Redo to btns
-	const answer1 = createDiv("option1", "answers", answerGridWrapper);
-	const answer2 = createDiv("option2", "answers", answerGridWrapper);
-	const answer3 = createDiv("option3", "answers", answerGridWrapper);
-	const answer4 = createDiv("option4", "answers", answerGridWrapper);
-}
-createSectionForQuestionsAndAnswers();
+//it's a reusable function to create sections and populate buttons with answers, in order for it to be reusable there needs to be separate button ids and btntext for each answer
+
+//Redo to constructor to be reusable
+// function createSectionForQuestionsAndAnswers(questionHeader, answerGridWrapperId, answerGridWrapperClassName, answerGridAppendPlace, btnId1,btnId2, btnId2, btnId3, btnId4,  btnText1, btnText2, btnText3, btnText4,  link1, link2, link3, link4, btnClass) {
+// 	console.log("Section1");
+// 	let questionText = document.createElement("h1");
+// 	questionText.innerHTML = questionHeader;
+// 	section1.append(questionText);
+
+// 	let answerGridWrapper = createDiv(answerGridWrapperId, answerGridWrapperClassName, answerGridAppendPlace);
+// 	//Redo to btns
+// 	const answer1 = createBtn(btnId1, btnClass, answerGridWrapper);
+// 	const answer2 = createBtn(btnId2, btnClass, answerGridWrapper);
+// 	const answer3 = createBtn(btnId3, btnClass, answerGridWrapper);
+// 	const answer4 = createBtn(btnId4, btnClass, answerGridWrapper);
+// }
+// createSectionForQuestionsAndAnswers();
+
+
