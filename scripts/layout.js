@@ -82,4 +82,28 @@ sectionStartPage();
 // }
 // createSectionForQuestionsAndAnswers();
 
+//creates separate sections when called and adds id
+
+function createSection(id) {
+	let section = document.createElement("section");
+	section.id = id;
+	bodyScript.append(section);
+	return section;
+}
+ 
+//create unique content for each section
+function section1Content(){
+	let div = createDiv(id, "answer_wrapper", appendPlace);
+	let button = createBtn(btnId, btnText, link, btnClass);
+	
+}
+
+createSection("section1");
+createSection("section2");
+createSection("section3");
+createSection("section4");
+createSection("section5");
+createSection("section6");
+createSection("section7");
+createSection("section8");
 
