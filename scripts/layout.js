@@ -90,7 +90,7 @@ function createSection(id) {
 	bodyScript.append(section);
 	return section;
 }
-createSectionForQuestionsAndAnswers();
+// createSectionForQuestionsAndAnswers();
 
 
 export {startButton};
