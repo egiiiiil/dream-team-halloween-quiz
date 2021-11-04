@@ -14,7 +14,7 @@ function createForm() {
 
 	input.placeholder = "First name";
 	input.id = "userNameInput";
-
+	form.id = "inputForm";
 	startButton.innerHTML = "start the quiz";
 	startButton.type = "submit";
 	startButton.id = "startButton";
@@ -90,6 +90,10 @@ function createSection(id) {
 	bodyScript.append(section);
 	return section;
 }
+createSectionForQuestionsAndAnswers();
+
+
+export {startButton};
  
 //create unique content for each section
 function section1Content(){

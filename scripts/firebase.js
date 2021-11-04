@@ -1,11 +1,14 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"
 import {
 	getFirestore,
 	collection,
 	addDoc,
+	doc,
 	getDocs,
-} from "firebase/firestore/lite";
+} from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 // import "./layout.js";
+
+import {startButton} from "./layout.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -38,6 +41,19 @@ async function addNameToFirebase() {
 function readInput(id) {
 	if (!document.getElementById(id) && !document.getElementById(id).value)
 		return null;
-	console.log(document.getElementById(id).value);
+	// console.log(document.getElementById(id).value);
 	return document.getElementById(id).value;
 }
+
+
+function sendNameToFirebase(event){
+	if(!document.getElementById("startButton")) return null;
+	//   document.getElementById("startButton").removeEventListener("click", addNameToFirebase);
+	 event.preventDefault();
+// 	document.getElementById("startButton").addEventListener("click", addNameToFirebase);
+    console.log("clicked");
+	addNameToFirebase();
+	document.getElementById("inputForm").reset();
+  };
+
+  startButton.addEventListener("click",sendNameToFirebase);
