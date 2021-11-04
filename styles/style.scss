@@ -7,7 +7,7 @@ html {
 	scroll-behavior: smooth;
 }
 
-section {
+section, form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -24,25 +24,30 @@ input[type="text"] {
 	font-size: 2rem;
 }
 
-#btn__submit {
-	background-color: rgb(197, 194, 194);
+label{
+	font-size: 2rem;
+	margin-bottom: 7%;
+}
+
+#startButton {
+	background-color: white;
 	text-align: center;
 	color: black;
 	text-decoration: none;
 	font-size: 2rem;
 	margin-top: 1rem;
-	width: 15rem;
+	width: 100%;
 	padding: 1rem;
 	border-radius: 15px;
 }
 
 /* SECOND SECTION   */
-#section_1 {
+#section1, #section2, #section3, #section4, #section5,#section6, #section7, #section8 {
 	height: 100vh;
 	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
 
-#answer_wrapper {
+.answer_wrapper {
 	display: grid;
 	align-content: center;
 	grid-template-columns: auto auto;
