@@ -10,7 +10,7 @@ function createForm() {
 
 	input.type = "text";
 	//DONE Add label
-	label.innerHTML = "Add your name:"
+	label.innerHTML = "Add your name:";
 
 	input.placeholder = "First name";
 	input.id = "userNameInput";
@@ -63,7 +63,6 @@ function sectionStartPage() {
 }
 sectionStartPage();
 
-
 //it's a reusable function to create sections and populate buttons with answers, in order for it to be reusable there needs to be separate button ids and btntext for each answer
 
 //Redo to constructor to be reusable
@@ -84,31 +83,55 @@ sectionStartPage();
 
 //creates separate sections when called and adds id
 
-function createSection(id) {
+// createSectionForQuestionsAndAnswers();
+
+export { startButton };
+
+//create unique content for each section
+function section1Content() {
+	let div = createDiv(id, "answer_wrapper", appendPlace);
+	let button = createBtn(btnId, btnText, link, btnClass);
+}
+// createSection("section1");
+// createSection("section2");
+// createSection("section3");
+// createSection("section4");
+// createSection("section5");
+// createSection("section6");
+// createSection("section7");
+// createSection("section8");
+
+//TODO for each loop for the question, create a section
+
+/* function test() {
+	let questions;
+	fetch("questions.json")
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(Object.keys(data).length);
+			questions = data;
+		});
+}
+test(); */
+function createSectionAndDiv(id) {
 	let section = document.createElement("section");
 	section.id = id;
 	bodyScript.append(section);
 	return section;
 }
-// createSectionForQuestionsAndAnswers();
+async function getQuestions() {
+	try {
+		let fetchQuestions = await fetch("questions.json");
+		let questionsAsJson = await fetchQuestions.json();
 
-
-export {startButton};
- 
-//create unique content for each section
-function section1Content(){
-	let div = createDiv(id, "answer_wrapper", appendPlace);
-	let button = createBtn(btnId, btnText, link, btnClass);
-	
+		for (let i = 0; i <= Object.keys(questionsAsJson).length; i++) {
+			createSectionAndDiv("section" + i.toString());
+			console.log("questions", Object.keys(questionsAsJson).length);
+			console.log("i", i);
+			createSectionAndDiv();
+		}
+	} catch (error) {
+		console.log("error", error);
+	}
 }
-
-createSection("section1");
-createSection("section2");
-createSection("section3");
-createSection("section4");
-createSection("section5");
-createSection("section6");
-createSection("section7");
-createSection("section8");
-
-//TODO for each loop for the question, create a section
+getQuestions();
