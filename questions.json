@@ -1,0 +1,14 @@
+{ "1" : 
+	{ "question" : "Best way to travel?",
+		"answers" : ["Train", "Walking", "Car", "Boat"]
+		
+	},
+	"2" :
+	{ "question" : "Where would you like to travel to?",
+		"answers" : ["Texas", "Las Vegas", "California", "Rural Sweden"]
+	},
+	"3" :
+	{ "question" : "Favorite vacation spot",
+		"answers" : ["Korea", "Home", "Sommarstuga", "NYC"]
+	}
+}
