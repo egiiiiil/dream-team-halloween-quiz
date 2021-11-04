@@ -10,7 +10,7 @@ function createForm() {
 	//TODO Add label
 	input.placeholder = "First name";
 	input.id = "userNameInput";
-
+	form.id = "inputForm";
 	startButton.innerHTML = "start the quiz";
 	startButton.type = "submit";
 	startButton.id = "startButton";
@@ -69,3 +69,6 @@ function createSectionForQuestionsAndAnswers() {
 	const answer4 = createDiv("option4", "answers", answerGridWrapper);
 }
 createSectionForQuestionsAndAnswers();
+
+
+export {startButton};
