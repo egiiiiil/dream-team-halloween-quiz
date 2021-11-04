@@ -107,3 +107,4 @@ createSection("section6");
 createSection("section7");
 createSection("section8");
 
+//TODO for each loop for the question, create a section
