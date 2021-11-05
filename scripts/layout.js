@@ -1,5 +1,5 @@
 const sectionStart = document.getElementById("section_start");
-const bodyScript = document.querySelector("body");
+const bodyTag = document.querySelector("body");
 
 const startButton = document.createElement("button");
 
@@ -63,72 +63,38 @@ function sectionStartPage() {
 }
 sectionStartPage();
 
-//it's a reusable function to create sections and populate buttons with answers, in order for it to be reusable there needs to be separate button ids and btntext for each answer
-
-//Redo to constructor to be reusable
-// function createSectionForQuestionsAndAnswers(questionHeader, answerGridWrapperId, answerGridWrapperClassName, answerGridAppendPlace, btnId1,btnId2, btnId2, btnId3, btnId4,  btnText1, btnText2, btnText3, btnText4,  link1, link2, link3, link4, btnClass) {
-// 	console.log("Section1");
-// 	let questionText = document.createElement("h1");
-// 	questionText.innerHTML = questionHeader;
-// 	section1.append(questionText);
-
-// 	let answerGridWrapper = createDiv(answerGridWrapperId, answerGridWrapperClassName, answerGridAppendPlace);
-// 	//Redo to btns
-// 	const answer1 = createBtn(btnId1, btnClass, answerGridWrapper);
-// 	const answer2 = createBtn(btnId2, btnClass, answerGridWrapper);
-// 	const answer3 = createBtn(btnId3, btnClass, answerGridWrapper);
-// 	const answer4 = createBtn(btnId4, btnClass, answerGridWrapper);
-// }
-// createSectionForQuestionsAndAnswers();
-
-//creates separate sections when called and adds id
-
-// createSectionForQuestionsAndAnswers();
-
 export { startButton };
 
-//create unique content for each section
-function section1Content() {
+function createSection(id) {
+	let section = document.createElement("section");
+	//	let answerWrapper = document.createElement("div");
+	section.id = id;
+	//	answerWrapper.id = id;
+	bodyTag.append(section);
+	//	section.append(answerWrapper);
+
+	/* 	let div = createDiv(id, "answer_wrapper", appendPlace);
+	let button = createBtn(btnId, btnText, link, btnClass);
+	bodyTag.append(div);
+	bodyTag.append(button); */
+
+	return section;
+}
+function createContent() {
 	let div = createDiv(id, "answer_wrapper", appendPlace);
 	let button = createBtn(btnId, btnText, link, btnClass);
 }
-// createSection("section1");
-// createSection("section2");
-// createSection("section3");
-// createSection("section4");
-// createSection("section5");
-// createSection("section6");
-// createSection("section7");
-// createSection("section8");
 
-//TODO for each loop for the question, create a section
-
-/* function test() {
-	let questions;
-	fetch("questions.json")
-		.then((response) => response.json())
-		.then((data) => {
-			console.log(Object.keys(data).length);
-			questions = data;
-		});
-}
-test(); */
-function createSectionAndDiv(id) {
-	let section = document.createElement("section");
-	section.id = id;
-	bodyScript.append(section);
-	return section;
-}
 async function getQuestions() {
 	try {
 		let fetchQuestions = await fetch("questions.json");
 		let questionsAsJson = await fetchQuestions.json();
 
 		for (let i = 0; i <= Object.keys(questionsAsJson).length; i++) {
-			createSectionAndDiv("section" + i.toString());
+			createSection("section" + i.toString());
 			console.log("questions", Object.keys(questionsAsJson).length);
 			console.log("i", i);
-			createSectionAndDiv();
+
 		}
 	} catch (error) {
 		console.log("error", error);
