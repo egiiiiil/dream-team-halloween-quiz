@@ -73,4 +73,9 @@ a {
   border-radius: 15px;
 }
 
+html,
+body {
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=style.css.map */

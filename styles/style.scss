@@ -74,3 +74,10 @@ label {
 a {
 	border-radius: 15px;
 }
+
+// Disables scroll and keeps the smooth scroll on pressing a button.
+// And sometimes messes up the height of section_start
+html,
+body {
+	overflow: hidden;
+}
