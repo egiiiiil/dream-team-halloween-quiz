@@ -30,10 +30,30 @@ ON LOAD {
 
 
 register click
-    send answers to array answerArray (on client js side) 
-    animation to indicate click
+    SELECT div containing buttons
+    event listener on container div
+    REGISTER click and value
+    SEND value to array answerArray
+    IF alreeady clicked, 
+    remove event listener 
+    ENDIF
     delay before scroll, 
     scroll 100vh to next question
+
+    CLICK get result button
+    calculate category with most occurences
+    
+
+
+    SEND TO FIREBASE
+    display result
+    show data from movie.json
+
+
+
+    
+
+    
 
 press send/get result
 calculate from array answerArray which category is highest
