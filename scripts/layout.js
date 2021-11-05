@@ -8,13 +8,14 @@ function createForm() {
 	let form = document.createElement("form");
 	let input = document.createElement("input");
 
-	input.type = "text";
 	//DONE Add label
 	label.innerHTML = "Add your name:";
+	form.id = "inputForm";
 
+	input.type = "text";
 	input.placeholder = "First name";
 	input.id = "userNameInput";
-	form.id = "inputForm";
+
 	startButton.innerHTML = "start the quiz";
 	startButton.type = "submit";
 	startButton.id = "startButton";
@@ -24,7 +25,7 @@ function createForm() {
 	form.append(startButton);
 	sectionStart.appendChild(form);
 }
-// Anchor
+
 function createBtn(btnId, btnText, link, btnClass) {
 	let anchor = document.createElement("a");
 	let button = document.createElement("button");
@@ -32,7 +33,6 @@ function createBtn(btnId, btnText, link, btnClass) {
 
 	button.id = btnId;
 	button.innerHTML = btnText;
-	anchor.className = anchorClass;
 	button.className = btnClass;
 
 	anchor.append(button);
@@ -49,52 +49,50 @@ function createDiv(id, className, appendPlace) {
 	return div;
 }
 
-function sectionStartPage() {
-	createForm();
-
-	// Create and append submit btn
-	// const submitBtn = createBtn(
-	// 	"btn__submit",
-	// 	"start the quiz",
-	// 	"#section_1",
-	// 	"btn"
-	// );
-	// sectionStart.append(submitBtn);
-}
-sectionStartPage();
+createForm();
 
 export { startButton };
 
 function createSection(id) {
 	let section = document.createElement("section");
-	//	let answerWrapper = document.createElement("div");
 	section.id = id;
-	//	answerWrapper.id = id;
 	bodyTag.append(section);
-	//	section.append(answerWrapper);
-
-	/* 	let div = createDiv(id, "answer_wrapper", appendPlace);
-	let button = createBtn(btnId, btnText, link, btnClass);
-	bodyTag.append(div);
-	bodyTag.append(button); */
 
 	return section;
 }
-function createContent() {
-	let div = createDiv(id, "answer_wrapper", appendPlace);
-	let button = createBtn(btnId, btnText, link, btnClass);
+
+//Section is an object
+function createContent(section, section_id, QnA) {
+	//Questions
+	let question = document.createElement("h1");
+	question.innerHTML = QnA.question;
+	section.append(question);
+	//Div BtnWrapper
+	let div = createDiv(section.id + "Div", "answer_wrapper", section);
+
+	// Buttons
+	for (let i = 0; i < QnA.answers.length; i++) {
+		let button = createBtn(
+			section.id + "button",
+			QnA.answers[i],
+			"#section" + (section_id + 1).toString(),
+			"answers"
+		);
+		div.append(button);
+	}
 }
 
 async function getQuestions() {
 	try {
 		let fetchQuestions = await fetch("questions.json");
+		//QuestionsJs
 		let questionsAsJson = await fetchQuestions.json();
 
-		for (let i = 0; i <= Object.keys(questionsAsJson).length; i++) {
-			createSection("section" + i.toString());
-			console.log("questions", Object.keys(questionsAsJson).length);
-			console.log("i", i);
+		for (let i = 1; i <= Object.keys(questionsAsJson).length; i++) {
+			let section = createSection("section" + i.toString());
 
+			//CONTENT
+			createContent(section, i, questionsAsJson[i]);
 		}
 	} catch (error) {
 		console.log("error", error);
