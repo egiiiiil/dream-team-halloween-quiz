@@ -7,7 +7,8 @@ html {
 	scroll-behavior: smooth;
 }
 
-section, form {
+section,
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -15,16 +16,16 @@ section, form {
 }
 
 /* FIRST SECTION      */
-#section_start {
-	height: 100vh;
-	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
-}
+// #section_start {
+// 	height: 100vh;
+// 	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
+// }
 
 input[type="text"] {
 	font-size: 2rem;
 }
 
-label{
+label {
 	font-size: 2rem;
 	margin-bottom: 7%;
 }
@@ -41,8 +42,25 @@ label{
 	border-radius: 15px;
 }
 
+#btn_Last {
+	text-align: center;
+	padding: 100%;
+	margin-top: 7rem;
+	background-color: white;
+
+	font-size: 2rem;
+	margin-top: 1rem;
+	width: 25rem;
+	padding: 1rem;
+	border-radius: 15px;
+}
+
+a #btn_Last {
+	margin-top: 4rem;
+}
+
 /* SECOND SECTION   */
-#section1, #section2, #section3, #section4, #section5,#section6, #section7, #section8 {
+section {
 	height: 100vh;
 	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
@@ -60,4 +78,8 @@ label{
 	border-radius: 15px;
 	margin: 1rem;
 	margin-top: 2rem;
+}
+
+.resultsH1 {
+	font-size: 2.5rem;
 }
