@@ -7,7 +7,8 @@ html {
 	scroll-behavior: smooth;
 }
 
-section, form {
+section,
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -24,7 +25,7 @@ input[type="text"] {
 	font-size: 2rem;
 }
 
-label{
+label {
 	font-size: 2rem;
 	margin-bottom: 7%;
 }
@@ -42,7 +43,14 @@ label{
 }
 
 /* SECOND SECTION   */
-#section1, #section2, #section3, #section4, #section5,#section6, #section7, #section8 {
+#section1,
+#section2,
+#section3,
+#section4,
+#section5,
+#section6,
+#section7,
+#section8 {
 	height: 100vh;
 	background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
@@ -51,6 +59,7 @@ label{
 	display: grid;
 	align-content: center;
 	grid-template-columns: auto auto;
+	grid-gap: 2rem;
 }
 
 .answers {
@@ -58,6 +67,10 @@ label{
 	width: 9rem;
 	height: 9rem;
 	border-radius: 15px;
-	margin: 1rem;
-	margin-top: 2rem;
+	//margin: 1rem;
+	//margin-top: 2rem;
+}
+
+a {
+	border-radius: 15px;
 }

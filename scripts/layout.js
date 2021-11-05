@@ -69,14 +69,23 @@ function createContent(section, section_id, QnA) {
 	section.append(question);
 	//Div BtnWrapper
 	let div = createDiv(section.id + "Div", "answer_wrapper", section);
+	//===============NEW
+	div.addEventListener("click", function (event) {
+		if (event.target.tagName === "BUTTON") {
+			console.log("class is", event.target.classList[0]);
+		}
+	});
 
+	const buttonAnswerClass = ["a", "b", "c", "d"];
+	//===============END NEW
 	// Buttons
 	for (let i = 0; i < QnA.answers.length; i++) {
 		let button = createBtn(
-			section.id + "button",
+			section.id + "button", // this creates not unique IDs for buttons, so now all buttons in one section have the same IDs
 			QnA.answers[i],
 			"#section" + (section_id + 1).toString(),
-			"answers"
+			// "answers"
+			`${buttonAnswerClass[i]} answers`
 		);
 		div.append(button);
 	}
