@@ -190,6 +190,7 @@ function createSubmitResultsSection() {
 
 	//calculate results when btn is clicked
 	resultbutton.addEventListener("click", getMovies);
+	
 }
 
 // console.log(resultCategory);
@@ -208,32 +209,46 @@ async function getMovies() {
 			arrayOfMovieTitles[Math.floor(Math.random() * arrayOfMovieTitles.length)];
 		const randomMoviePoster = movies[randomMovie]["poster"];
 		const randomMovieYear = movies[randomMovie]["year"];
-		console.log(
+		/* console.log(
 			movies,
 			arrayOfMovieTitles,
 			randomMovie,
 			randomMoviePoster,
 			randomMovieYear
-		);
+		); */
+		let movieObject = {
+			movieName : randomMovie,
+			moviePoster : randomMoviePoster,
+			movieYear : randomMovieYear 
+		}
+		//console.log(movieObject)
+		return movieObject;
 	} catch (error) {
 		console.log("error", error);
 	}
 }
-// getMovies();
+
 
 //Last page
-function createResultSection() {
+async function createResultSection() {
+	let a = movieObject;
+	console.log(getMovies)
+	console.log(movieObject)
 	let section = createSection("section10");
+	
 	//Div
-	let div = createDiv("section10Div", "sectionResults", section);
-	section.append(div);
+	let containerDiv = createDiv("section10-wrapper", "sectionResults", section);
+	let posterDiv = createDiv("posterDiv", "sectionResults", containerDiv);
+	let infoDiv = createDiv("movieDiv", "sectionResults", containerDiv);
+	
+	section.append(containerDiv);
 	//random chosen movie from the category
 
 	//p "Your category is..." ( result from get category)
-	let heading = document.createElement("h1");
-	heading.innerHTML = "Your category is ";
+	//let heading = document.createElement("h1");
+	// heading.innerHTML = "Your category is ";
+	posterDiv.innerHTML = ""
 	//movie title and the year
 
 	//on the left side the movie poster
 }
-// new
