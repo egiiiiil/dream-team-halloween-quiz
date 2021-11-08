@@ -232,3 +232,4 @@ function createResultSection() {
 
 	//on the left side the movie poster
 }
+// new
