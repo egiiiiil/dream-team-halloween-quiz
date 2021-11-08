@@ -10,13 +10,13 @@ function createForm() {
 
 	//DONE Add label
 	label.innerHTML = "Add your name:";
-	label.htmlFor = "userNameInput"
+	label.htmlFor = "userNameInput";
 	form.id = "inputForm";
 
 	input.type = "text";
 	input.placeholder = "First name";
 	input.id = "userNameInput";
-	input.name = "userNameInput"
+	input.name = "userNameInput";
 
 	startButton.innerHTML = "start the quiz";
 	startButton.type = "submit";
@@ -27,8 +27,6 @@ function createForm() {
 	form.append(startButton);
 	sectionStart.appendChild(form);
 }
-
-
 
 function createBtn(btnText, link, btnClass) {
 	//btnId
@@ -114,7 +112,7 @@ async function getQuestions() {
 		}
 		//dont want to execute second function WHYYY????
 		createSubmitResultsSection();
-		createResultSection();
+		// createResultSection();
 	} catch (error) {
 		console.log("error", error);
 	}
@@ -145,24 +143,23 @@ let resultCategory = "";
 
 // returns a letter
 function getCategory() {
-  let categoriesIndex = [];
-  let maxPoints = Math.max(...arrayOfUserAnswers);
- 
-  for (let i = 0; i < arrayOfUserAnswers.length; i++) {
-    if (arrayOfUserAnswers[i]== maxPoints) {
-      categoriesIndex.push(i);
-    }
-  }
-  console.log(categoriesIndex, "Categories");
-	let randomIndex = categoriesIndex[Math.floor(Math.random() * categoriesIndex.length)];
-  let letter = answerCategory[randomIndex];
-  console.log(letter);
-  console.log(maxPoints);
-  console.log(randomIndex, "RandomIndexNumber");
+	let categoriesIndex = [];
+	let maxPoints = Math.max(...arrayOfUserAnswers);
 
-  
-  return (resultCategory = letter);
-  
+	for (let i = 0; i < arrayOfUserAnswers.length; i++) {
+		if (arrayOfUserAnswers[i] == maxPoints) {
+			categoriesIndex.push(i);
+		}
+	}
+	// console.log(categoriesIndex, "Categories");
+	let randomIndex =
+		categoriesIndex[Math.floor(Math.random() * categoriesIndex.length)];
+	let letter = answerCategory[randomIndex];
+	// console.log(letter);
+	// console.log(maxPoints);
+	// console.log(randomIndex, "RandomIndexNumber");
+
+	return (resultCategory = letter);
 }
 
 //Submit results page
@@ -189,16 +186,15 @@ function createSubmitResultsSection() {
 	div.append(resultbutton);
 
 	//calculate results when btn is clicked
-	resultbutton.addEventListener("click", getMovies);
-	
+	resultbutton.addEventListener("click", createResultSection);
 }
 
 // console.log(resultCategory);
 
 // TODO finish this function, find a way to access keys from json to compare
-async function getMovies() {
-  try {
-    getCategory()
+const movieObject = async () => {
+	try {
+		getCategory();
 		let fetchMovies = await fetch("movie.json");
 		let moviesAsJs = await fetchMovies.json();
 
@@ -209,46 +205,33 @@ async function getMovies() {
 			arrayOfMovieTitles[Math.floor(Math.random() * arrayOfMovieTitles.length)];
 		const randomMoviePoster = movies[randomMovie]["poster"];
 		const randomMovieYear = movies[randomMovie]["year"];
-		/* console.log(
-			movies,
-			arrayOfMovieTitles,
-			randomMovie,
-			randomMoviePoster,
-			randomMovieYear
-		); */
-		let movieObject = {
-			movieName : randomMovie,
-			moviePoster : randomMoviePoster,
-			movieYear : randomMovieYear 
-		}
-		//console.log(movieObject)
-		return movieObject;
+
+		return {
+			movieName: randomMovie,
+			moviePoster: randomMoviePoster,
+			movieYear: randomMovieYear,
+		};
 	} catch (error) {
 		console.log("error", error);
 	}
-}
-
+};
 
 //Last page
 async function createResultSection() {
-	let a = movieObject;
-	console.log(getMovies)
-	console.log(movieObject)
 	let section = createSection("section10");
-	
+	let movie = await movieObject();
+	console.log("movie is", movie);
+	console.log("movie name is", movie.movieName);
 	//Div
 	let containerDiv = createDiv("section10-wrapper", "sectionResults", section);
 	let posterDiv = createDiv("posterDiv", "sectionResults", containerDiv);
 	let infoDiv = createDiv("movieDiv", "sectionResults", containerDiv);
-	
-	section.append(containerDiv);
-	//random chosen movie from the category
 
 	//p "Your category is..." ( result from get category)
-	//let heading = document.createElement("h1");
+	let heading = document.createElement("h1");
+	heading.innerHTML = "You should watch this movie:";
 	// heading.innerHTML = "Your category is ";
-	posterDiv.innerHTML = ""
-	//movie title and the year
-
-	//on the left side the movie poster
+	posterDiv.innerHTML = `<img src="${movie.moviePoster}">`;
+	infoDiv.innerHTML = `<h2>${movie.movieName}</h2> <p>${movie.movieYear}</p>`;
+	section.append(containerDiv);
 }
