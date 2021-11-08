@@ -113,9 +113,8 @@ async function getQuestions() {
 			createContent(section, i, questionsAsJson[i]);
 		}
 		//dont want to execute second function WHYYY????
-    createSubmitResultsSection();
+		createSubmitResultsSection();
 		createResultSection();
-    
 	} catch (error) {
 		console.log("error", error);
 	}
@@ -141,19 +140,30 @@ function recordUserAnswerToArray(userAnswer) {
 }
 //To calculate a category with biggest click number
 
-
 let resultCategory = "";
 //when btn is clicked corresponding clickNumber must be increased by 1
 
 // returns a letter
 function getCategory() {
-	let i_max = arrayOfUserAnswers.indexOf(Math.max(...arrayOfUserAnswers));
-	let letter = answerCategory[i_max];
-	return (resultCategory = letter);
+  let categoriesIndex = [];
+  let maxPoints = Math.max(...arrayOfUserAnswers);
+ 
+  for (let i = 0; i < arrayOfUserAnswers.length; i++) {
+    if (arrayOfUserAnswers[i]== maxPoints) {
+      categoriesIndex.push(i);
+    }
+  }
+  console.log(categoriesIndex, "Categories");
+	let randomIndex = categoriesIndex[Math.floor(Math.random() * categoriesIndex.length)];
+  let letter = answerCategory[randomIndex];
+  console.log(letter);
+  console.log(maxPoints);
+  console.log(randomIndex, "RandomIndexNumber");
+
+  
+  return (resultCategory = letter);
+  
 }
-
-
-
 
 //Submit results page
 function createSubmitResultsSection() {
@@ -170,36 +180,45 @@ function createSubmitResultsSection() {
 	section.append(div);
 
 	//btn "submit"
-	let resultbutton = createBtn("SHOW ME MY RESULTS!", "#section10", "resultbutton");
+	let resultbutton = createBtn(
+		"SHOW ME MY RESULTS!",
+		"#section10",
+		"resultbutton"
+	);
 
-	
 	div.append(resultbutton);
 
 	//calculate results when btn is clicked
-	resultbutton.addEventListener("click", getCategory);
+	resultbutton.addEventListener("click", getMovies);
 }
 
 // console.log(resultCategory);
 
-//TODO finish this function, find a way to access keys from json to compare
-// async function getMovies() {
-// 	try {
-// 		let fetchMovies = await fetch("movie.json");
-// 		//QuestionsJs
-// 		let moviesAsJs = await fetchMovies.json();
-// 		let arrayOfKeys = Object.keys(moviesAsJs);
-// 		console.log(arrayOfKeys);
-// 		// console.log(moviesAsJs);
-// 		for (let i = 1; i <= Object.keys(moviesAsJs).length; i++) {
-// 			console.log(JSON.stringify(moviesAsJs[i]));
-// 			// if (resultCategory === moviesAsJs[i].toString()) {
-// 			// 	// console.log(moviesAsJs[i].toString());
-// 			// }
-// 		}
-// 	} catch (error) {
-// 		console.log("error", error);
-// 	}
-// }
+// TODO finish this function, find a way to access keys from json to compare
+async function getMovies() {
+  try {
+    getCategory()
+		let fetchMovies = await fetch("movie.json");
+		let moviesAsJs = await fetchMovies.json();
+
+		let movies = moviesAsJs[resultCategory];
+		let arrayOfMovieTitles = Object.keys(movies);
+
+		const randomMovie =
+			arrayOfMovieTitles[Math.floor(Math.random() * arrayOfMovieTitles.length)];
+		const randomMoviePoster = movies[randomMovie]["poster"];
+		const randomMovieYear = movies[randomMovie]["year"];
+		console.log(
+			movies,
+			arrayOfMovieTitles,
+			randomMovie,
+			randomMoviePoster,
+			randomMovieYear
+		);
+	} catch (error) {
+		console.log("error", error);
+	}
+}
 // getMovies();
 
 //Last page
@@ -217,3 +236,4 @@ function createResultSection() {
 
 	//on the left side the movie poster
 }
+// new
