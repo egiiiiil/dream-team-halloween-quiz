@@ -16,11 +16,6 @@ form {
 }
 
 /* FIRST SECTION      */
-#section_start {
-  height: 100vh;
-  background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
-}
-
 input[type=text] {
   font-size: 2rem;
 }
@@ -42,15 +37,24 @@ label {
   border-radius: 15px;
 }
 
+#btn_Last {
+  text-align: center;
+  padding: 100%;
+  margin-top: 7rem;
+  background-color: white;
+  font-size: 2rem;
+  margin-top: 1rem;
+  width: 25rem;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+a #btn_Last {
+  margin-top: 4rem;
+}
+
 /* SECOND SECTION   */
-#section1,
-#section2,
-#section3,
-#section4,
-#section5,
-#section6,
-#section7,
-#section8 {
+section {
   height: 100vh;
   background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
@@ -73,9 +77,20 @@ a {
   border-radius: 15px;
 }
 
-html,
-body {
-  overflow: hidden;
+.resultsH1 {
+  font-size: 2.5rem;
+}
+
+.resultbutton {
+  background-color: white;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  font-size: 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=style.css.map */
