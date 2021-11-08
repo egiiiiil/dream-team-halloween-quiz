@@ -106,6 +106,9 @@ async function getQuestions() {
 			//CONTENT
 			createContent(section, i, questionsAsJson[i]);
 		}
+		//dont want to execute second function WHYYY????
+		createResultSection();
+		createSubmitResultsSection();
 	} catch (error) {
 		console.log("error", error);
 	}
@@ -128,4 +131,82 @@ function recordUserAnswerToArray(userAnswer) {
 		arrayOfUserAnswers[3]++;
 		console.log(arrayOfUserAnswers);
 	}
+}
+//To calculate a category with biggest click number
+let categoryLetter = ["a", "b", "c", "d"];
+
+let clickNumbers = [0, 0, 0, 0];
+
+let resultCategory = "";
+//when btn is clicked corresponding clickNumber must be increased by 1
+
+// returns a letter
+function getCategory() {
+	let i_max = clickNumbers.indexOf(Math.max(...clickNumbers));
+	let letter = categoryLetter[i_max];
+	return (resultCategory = letter);
+}
+
+getCategory(clickNumbers);
+// console.log(getCategory(clickNumbers));
+
+//Submit results page
+function createSubmitResultsSection() {
+	let section = createSection("section9");
+
+	//Text "Click this btn to see your results"
+	let showResultsText = document.createElement("h1");
+	showResultsText.innerHTML = "Click this button to show your result";
+	showResultsText.className = "resultsH1";
+	section.append(showResultsText);
+
+	//Div
+	let div = createDiv("section9Div", "sectionSubmit", section);
+	section.append(div);
+
+	//btn "submit"
+	let btn = createBtn("btn_Last", "SHOW ME MY RESULTS!", "section9", "");
+	div.append(btn);
+
+	//calculate results when btn is clicked
+	btn.addEventListener("click", getCategory);
+}
+
+// console.log(resultCategory);
+
+//TODO finish this function, find a way to access keys from json to compare
+async function getMovies() {
+	try {
+		let fetchMovies = await fetch("movie.json");
+		//QuestionsJs
+		let moviesAsJs = await fetchMovies.json();
+		let arrayOfKeys = Object.keys(moviesAsJs);
+		console.log(arrayOfKeys);
+		// console.log(moviesAsJs);
+		for (let i = 1; i <= Object.keys(moviesAsJs).length; i++) {
+			console.log(JSON.stringify(moviesAsJs[i]));
+			// if (resultCategory === moviesAsJs[i].toString()) {
+			// 	// console.log(moviesAsJs[i].toString());
+			// }
+		}
+	} catch (error) {
+		console.log("error", error);
+	}
+}
+getMovies();
+
+//Last page
+function createResultSection() {
+	let section = createSection("section10");
+	//Div
+	let div = createDiv("section10Div", "sectionResults", section);
+	section.append(div);
+	//random chosen movie from the category
+
+	//p "Your category is..." ( result from get category)
+	let heading = document.createElement("h1");
+	heading.innerHTML = "Your category is ";
+	//movie title and the year
+
+	//on the left side the movie poster
 }

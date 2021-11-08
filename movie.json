@@ -1,5 +1,5 @@
 {
-	"A very scary": {
+	"a": {
 									"V/H/S" : {
 										"poster" : "https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2835&q=80",
 										"year"   : 2012
@@ -66,7 +66,7 @@
 									}
 	
 	},
-	"B not very scary" : {
+	"b" : {
 									"Dawn of the Dead" : {
 										"poster" : "https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2835&q=80",
 										"year"   : 1978
@@ -132,7 +132,7 @@
 										"year"   : 2002
 									}
 	},
-	"C comedies" : {
+	"c" : {
 									"Zombieland" : {
 										"poster" : "https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2835&q=80",
 										"year"   : 2009
@@ -195,7 +195,7 @@
 										"year"   : 2017
 									}
 	},													
-	"D psychological" : {
+	"d" : {
 									"Midsommar " : {
 										"poster" : "https://images.unsplash.com/photo-1616530940355-351fabd9524b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2835&q=80",
 										"year"   : 2019
