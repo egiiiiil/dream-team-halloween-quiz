@@ -90,11 +90,6 @@ a {
   border-radius: 15px;
 }
 
-html,
-body {
-  overflow: hidden;
-}
-
 .resultsH1 {
   font-size: 2.5rem;
 }

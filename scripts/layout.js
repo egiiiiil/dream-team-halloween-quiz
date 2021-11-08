@@ -61,6 +61,8 @@ function createSection(id) {
 	return section;
 }
 
+const answerCategory = ["a", "b", "c", "d"];
+
 //Section is an object
 function createContent(section, section_id, QnA) {
 	//Questions
@@ -79,7 +81,6 @@ function createContent(section, section_id, QnA) {
 		}
 	});
 
-	const buttonAnswerClass = ["a", "b", "c", "d"];
 	//===============END NEW
 	// Buttons
 	for (let i = 0; i < QnA.answers.length; i++) {
@@ -88,7 +89,7 @@ function createContent(section, section_id, QnA) {
 			QnA.answers[i],
 			"#section" + (section_id + 1).toString(),
 			// "answers"
-			`${buttonAnswerClass[i]} answers`
+			`${answerCategory[i]} answers`
 		);
 		div.append(button);
 	}
@@ -107,8 +108,9 @@ async function getQuestions() {
 			createContent(section, i, questionsAsJson[i]);
 		}
 		//dont want to execute second function WHYYY????
+    createSubmitResultsSection();
 		createResultSection();
-		createSubmitResultsSection();
+    
 	} catch (error) {
 		console.log("error", error);
 	}
@@ -133,22 +135,20 @@ function recordUserAnswerToArray(userAnswer) {
 	}
 }
 //To calculate a category with biggest click number
-let categoryLetter = ["a", "b", "c", "d"];
 
-let clickNumbers = [0, 0, 0, 0];
 
 let resultCategory = "";
 //when btn is clicked corresponding clickNumber must be increased by 1
 
 // returns a letter
 function getCategory() {
-	let i_max = clickNumbers.indexOf(Math.max(...clickNumbers));
-	let letter = categoryLetter[i_max];
+	let i_max = arrayOfUserAnswers.indexOf(Math.max(...arrayOfUserAnswers));
+	let letter = answerCategory[i_max];
 	return (resultCategory = letter);
 }
 
-getCategory(clickNumbers);
-// console.log(getCategory(clickNumbers));
+
+console.log(getCategory(arrayOfUserAnswers));
 
 //Submit results page
 function createSubmitResultsSection() {
@@ -165,7 +165,7 @@ function createSubmitResultsSection() {
 	section.append(div);
 
 	//btn "submit"
-	let btn = createBtn("btn_Last", "SHOW ME MY RESULTS!", "section9", "");
+	let btn = createBtn("btn_Last", "SHOW ME MY RESULTS!", "#section10", "");
 	div.append(btn);
 
 	//calculate results when btn is clicked
@@ -175,25 +175,25 @@ function createSubmitResultsSection() {
 // console.log(resultCategory);
 
 //TODO finish this function, find a way to access keys from json to compare
-async function getMovies() {
-	try {
-		let fetchMovies = await fetch("movie.json");
-		//QuestionsJs
-		let moviesAsJs = await fetchMovies.json();
-		let arrayOfKeys = Object.keys(moviesAsJs);
-		console.log(arrayOfKeys);
-		// console.log(moviesAsJs);
-		for (let i = 1; i <= Object.keys(moviesAsJs).length; i++) {
-			console.log(JSON.stringify(moviesAsJs[i]));
-			// if (resultCategory === moviesAsJs[i].toString()) {
-			// 	// console.log(moviesAsJs[i].toString());
-			// }
-		}
-	} catch (error) {
-		console.log("error", error);
-	}
-}
-getMovies();
+// async function getMovies() {
+// 	try {
+// 		let fetchMovies = await fetch("movie.json");
+// 		//QuestionsJs
+// 		let moviesAsJs = await fetchMovies.json();
+// 		let arrayOfKeys = Object.keys(moviesAsJs);
+// 		console.log(arrayOfKeys);
+// 		// console.log(moviesAsJs);
+// 		for (let i = 1; i <= Object.keys(moviesAsJs).length; i++) {
+// 			console.log(JSON.stringify(moviesAsJs[i]));
+// 			// if (resultCategory === moviesAsJs[i].toString()) {
+// 			// 	// console.log(moviesAsJs[i].toString());
+// 			// }
+// 		}
+// 	} catch (error) {
+// 		console.log("error", error);
+// 	}
+// }
+// getMovies();
 
 //Last page
 function createResultSection() {
