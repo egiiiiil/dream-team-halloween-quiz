@@ -69,14 +69,26 @@ function createContent(section, section_id, QnA) {
 	section.append(question);
 	//Div BtnWrapper
 	let div = createDiv(section.id + "Div", "answer_wrapper", section);
+	//===============NEW
+	div.addEventListener("click", function (event) {
+		if (event.target.tagName === "BUTTON") {
+			console.log("class is", event.target.classList[0]);
+			const userAnswer = event.target.classList[0];
+			console.log(userAnswer);
+			recordUserAnswerToArray(userAnswer);
+		}
+	});
 
+	const buttonAnswerClass = ["a", "b", "c", "d"];
+	//===============END NEW
 	// Buttons
 	for (let i = 0; i < QnA.answers.length; i++) {
 		let button = createBtn(
-			section.id + "button",
+			section.id + "button", // this creates not unique IDs for buttons, so now all buttons in one section have the same IDs
 			QnA.answers[i],
 			"#section" + (section_id + 1).toString(),
-			"answers"
+			// "answers"
+			`${buttonAnswerClass[i]} answers`
 		);
 		div.append(button);
 	}
@@ -99,3 +111,21 @@ async function getQuestions() {
 	}
 }
 getQuestions();
+
+let arrayOfUserAnswers = [0, 0, 0, 0];
+
+function recordUserAnswerToArray(userAnswer) {
+	if (userAnswer === "a") {
+		arrayOfUserAnswers[0]++;
+		console.log(arrayOfUserAnswers);
+	} else if (userAnswer === "b") {
+		arrayOfUserAnswers[1]++;
+		console.log(arrayOfUserAnswers);
+	} else if (userAnswer === "c") {
+		arrayOfUserAnswers[2]++;
+		console.log(arrayOfUserAnswers);
+	} else if (userAnswer === "d") {
+		arrayOfUserAnswers[3]++;
+		console.log(arrayOfUserAnswers);
+	}
+}

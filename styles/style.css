@@ -1,27 +1,18 @@
 * {
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-section, form {
-  display: -webkit-box;
-  display: -ms-flexbox;
+section,
+form {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* FIRST SECTION      */
@@ -30,7 +21,7 @@ section, form {
   background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
 
-input[type="text"] {
+input[type=text] {
   font-size: 2rem;
 }
 
@@ -52,18 +43,23 @@ label {
 }
 
 /* SECOND SECTION   */
-#section1, #section2, #section3, #section4, #section5, #section6, #section7, #section8 {
+#section1,
+#section2,
+#section3,
+#section4,
+#section5,
+#section6,
+#section7,
+#section8 {
   height: 100vh;
   background-image: repeating-linear-gradient(145deg, #ff9900, #515151);
 }
 
 .answer_wrapper {
-  display: -ms-grid;
   display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
+  align-content: center;
+  grid-template-columns: auto auto;
+  grid-gap: 2rem;
 }
 
 .answers {
@@ -71,7 +67,15 @@ label {
   width: 9rem;
   height: 9rem;
   border-radius: 15px;
-  margin: 1rem;
-  margin-top: 2rem;
 }
+
+a {
+  border-radius: 15px;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=style.css.map */
