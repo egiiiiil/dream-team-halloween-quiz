@@ -54,6 +54,10 @@ function sendNameToFirebase(event){
     console.log("clicked");
 	addNameToFirebase();
 	document.getElementById("inputForm").reset();
+	window.location.href = "#section1";
+ 
+
+	//onclick="window.location.href='/page2'"
   };
 
   startButton.addEventListener("click",sendNameToFirebase);

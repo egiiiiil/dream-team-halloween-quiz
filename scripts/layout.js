@@ -10,11 +10,13 @@ function createForm() {
 
 	//DONE Add label
 	label.innerHTML = "Add your name:";
+	label.htmlFor = "userNameInput"
 	form.id = "inputForm";
 
 	input.type = "text";
 	input.placeholder = "First name";
 	input.id = "userNameInput";
+	input.name = "userNameInput"
 
 	startButton.innerHTML = "start the quiz";
 	startButton.type = "submit";
@@ -25,6 +27,8 @@ function createForm() {
 	form.append(startButton);
 	sectionStart.appendChild(form);
 }
+
+
 
 function createBtn(btnText, link, btnClass) {
 	//btnId
@@ -149,7 +153,7 @@ function getCategory() {
 }
 
 
-console.log(getCategory(arrayOfUserAnswers));
+
 
 //Submit results page
 function createSubmitResultsSection() {
