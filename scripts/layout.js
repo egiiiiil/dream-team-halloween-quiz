@@ -26,12 +26,13 @@ function createForm() {
 	sectionStart.appendChild(form);
 }
 
-function createBtn(btnId, btnText, link, btnClass) {
+function createBtn(btnText, link, btnClass) {
+	//btnId
 	let anchor = document.createElement("a");
 	let button = document.createElement("button");
 	anchor.setAttribute("href", link);
 
-	button.id = btnId;
+	//button.id = btnId;
 	button.innerHTML = btnText;
 	button.className = btnClass;
 
@@ -85,7 +86,7 @@ function createContent(section, section_id, QnA) {
 	// Buttons
 	for (let i = 0; i < QnA.answers.length; i++) {
 		let button = createBtn(
-			section.id + "button", // this creates not unique IDs for buttons, so now all buttons in one section have the same IDs
+			// section.id + "button", // this creates not unique IDs for buttons, so now all buttons in one section have the same IDs
 			QnA.answers[i],
 			"#section" + (section_id + 1).toString(),
 			// "answers"
@@ -165,8 +166,10 @@ function createSubmitResultsSection() {
 	section.append(div);
 
 	//btn "submit"
-	let btn = createBtn("btn_Last", "SHOW ME MY RESULTS!", "#section10", "");
-	div.append(btn);
+	let resultbutton = createBtn("SHOW ME MY RESULTS!", "#section10", "resultbutton");
+
+	
+	div.append(resultbutton);
 
 	//calculate results when btn is clicked
 	btn.addEventListener("click", getCategory);
