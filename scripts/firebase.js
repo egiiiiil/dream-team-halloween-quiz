@@ -8,7 +8,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 // import "./layout.js";
 
-import {startButton} from "./layout.js";
+// import {startButton} from "./layout.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -46,7 +46,7 @@ function readInput(id) {
 }
 
 
-function sendNameToFirebase(event){
+export function sendNameToFirebase(event){
 	if(!document.getElementById("startButton")) return null;
 	//   document.getElementById("startButton").removeEventListener("click", addNameToFirebase);
 	 event.preventDefault();
@@ -60,4 +60,10 @@ function sendNameToFirebase(event){
 	//onclick="window.location.href='/page2'"
   };
 
-  startButton.addEventListener("click",sendNameToFirebase);
+// startButton.addEventListener("click", sendNameToFirebase);
+  
+
+export function sendResultToFirebase(result) {
+  console.log("Sended to firebase",result)
+}
+// export { sendResultToFirebase};
