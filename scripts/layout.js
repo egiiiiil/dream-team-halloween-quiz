@@ -1,5 +1,5 @@
 const sectionStart = document.getElementById("section_start");
-const bodyTag = document.querySelector("body");
+const bodyTag = document.getElementById("questions");
 
 const startButton = document.createElement("button");
 
@@ -54,7 +54,7 @@ function createDiv(id, className, appendPlace) {
 
 createForm();
 
-export { startButton };
+
 
 function createSection(id) {
 	let section = document.createElement("section");
@@ -63,6 +63,7 @@ function createSection(id) {
 
 	return section;
 }
+
 
 const answerCategory = ["a", "b", "c", "d"];
 
@@ -111,14 +112,14 @@ async function getQuestions() {
 			createContent(section, i, questionsAsJson[i]);
 		}
 		//dont want to execute second function WHYYY????
-		createSubmitResultsSection();
+		
 		// createResultSection();
 	} catch (error) {
 		console.log("error", error);
 	}
 }
 getQuestions();
-
+createSubmitResultsSection();
 let arrayOfUserAnswers = [0, 0, 0, 0];
 
 function recordUserAnswerToArray(userAnswer) {
@@ -235,3 +236,5 @@ async function createResultSection() {
 	infoDiv.innerHTML = `<h2>${movie.movieName}</h2> <p>${movie.movieYear}</p>`;
 	section.append(containerDiv);
 }
+
+export { startButton };

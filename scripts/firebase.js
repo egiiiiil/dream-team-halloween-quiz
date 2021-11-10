@@ -55,9 +55,22 @@ function sendNameToFirebase(event){
 	addNameToFirebase();
 	document.getElementById("inputForm").reset();
 	window.location.href = "#section1";
- 
+	
 
 	//onclick="window.location.href='/page2'"
-  };
+};
+startButton.addEventListener("click", sendNameToFirebase);
 
-  startButton.addEventListener("click",sendNameToFirebase);
+
+let resultButton = document.getElementsByClassName('resultbutton')[0];
+console.log(resultButton)
+
+/* async function sendNameAndMovieToFirebase() {
+	if(!resultButton) return null;
+	console.log("clicked");
+	addNameToFirebase();
+	window.location.href = "#section10";
+	
+};
+
+resultButton.addEventListener("click", sendNameAndMovieToFirebase); */
