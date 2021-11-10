@@ -55,14 +55,23 @@ html {
 
 section,
 form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* FIRST SECTION      */
-input[type=text] {
+input[type="text"] {
   font-size: 2rem;
 }
 
@@ -107,9 +116,12 @@ section {
 }
 
 .answer_wrapper {
+  display: -ms-grid;
   display: grid;
-  align-content: center;
-  grid-template-columns: auto auto;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
   grid-gap: 2rem;
 }
 
@@ -143,5 +155,4 @@ body {
   padding: 1rem;
   border-radius: 15px;
 }
-
 /*# sourceMappingURL=style.css.map */

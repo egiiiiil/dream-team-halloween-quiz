@@ -57,7 +57,9 @@ function createDiv(id, className, appendPlace) {
 
 createForm();
 
-export { startButton };
+// export { startButton };
+import { sendNameToFirebase } from "./firebase.js";
+startButton.addEventListener("click", sendNameToFirebase);
 
 function createSection(id) {
 	let section = document.createElement("section");
@@ -158,13 +160,10 @@ function getCategory() {
 	let randomIndex =
 		categoriesIndex[Math.floor(Math.random() * categoriesIndex.length)];
 	let letter = answerCategory[randomIndex];
-	// console.log(letter);
-	// console.log(maxPoints);
-	// console.log(randomIndex, "RandomIndexNumber");
-
 	return (resultCategory = letter);
 }
 
+import { sendResultToFirebase } from "./firebase.js";
 //Submit results page
 function createSubmitResultsSection() {
 	let section = createSection("section9");
@@ -190,6 +189,7 @@ function createSubmitResultsSection() {
 
 	//calculate results when btn is clicked
 	resultbutton.addEventListener("click", createResultSection);
+	// resultbutton.addEventListener("click", sendResultToFirebase);
 }
 
 // console.log(resultCategory);
@@ -222,7 +222,10 @@ const movieObject = async () => {
 //Last page
 async function createResultSection() {
 	let section = createSection("section10");
-	let movie = await movieObject();
+  let movie = await movieObject();
+  
+  //SEND TO FIREBASE
+	sendResultToFirebase(movie);
 	console.log("movie is", movie);
 	console.log("movie name is", movie.movieName);
 	//Div
