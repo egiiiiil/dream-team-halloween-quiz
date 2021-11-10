@@ -4,11 +4,13 @@ const bodyTag = document.querySelector("body");
 const startButton = document.createElement("button");
 
 function createForm() {
+	let h1 = document.createElement("h1");
 	let label = document.createElement("label");
 	let form = document.createElement("form");
 	let input = document.createElement("input");
 
 	//DONE Add label
+	h1.innerHTML = "Hallowween-o-rama Quiz!"
 	label.innerHTML = "Add your name:";
 	label.htmlFor = "userNameInput";
 	form.id = "inputForm";
@@ -22,6 +24,7 @@ function createForm() {
 	startButton.type = "submit";
 	startButton.id = "startButton";
 
+	form.append(h1);
 	form.append(label);
 	form.append(input);
 	form.append(startButton);
@@ -69,7 +72,7 @@ const answerCategory = ["a", "b", "c", "d"];
 //Section is an object
 function createContent(section, section_id, QnA) {
 	//Questions
-	let question = document.createElement("h1");
+	let question = document.createElement("label");
 	question.innerHTML = QnA.question;
 	section.append(question);
 	//Div BtnWrapper
@@ -167,7 +170,7 @@ function createSubmitResultsSection() {
 	let section = createSection("section9");
 
 	//Text "Click this btn to see your results"
-	let showResultsText = document.createElement("h1");
+	let showResultsText = document.createElement("label");
 	showResultsText.innerHTML = "Click this button to show your result";
 	showResultsText.className = "resultsH1";
 	section.append(showResultsText);
@@ -228,7 +231,7 @@ async function createResultSection() {
 	let infoDiv = createDiv("movieDiv", "sectionResults", containerDiv);
 
 	//p "Your category is..." ( result from get category)
-	let heading = document.createElement("h1");
+	let heading = document.createElement("h2");
 	heading.innerHTML = "You should watch this movie:";
 	// heading.innerHTML = "Your category is ";
 	posterDiv.innerHTML = `<img src="${movie.moviePoster}">`;
