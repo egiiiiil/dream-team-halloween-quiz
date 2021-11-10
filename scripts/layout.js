@@ -31,18 +31,27 @@ function createForm() {
 	sectionStart.appendChild(form);
 }
 
-function createBtn(btnText, link, btnClass) {
+function createBtn(btnText, btnClass, btnSectionId) {
 	//btnId
-	let anchor = document.createElement("a");
+	/* let div = document.getElementById(btnSectionId + "Div"); */
+	/* let anchor = document.createElement("a"); */
 	let button = document.createElement("button");
-	anchor.setAttribute("href", link);
+	//anchor.setAttribute("href", link);
+	/* console.log(div) */
+
+
+	// window.location.href = "#section1";
+
+
+
+
 
 	//button.id = btnId;
 	button.innerHTML = btnText;
 	button.className = btnClass;
 
-	anchor.append(button);
-	return anchor;
+	
+	return button;
 }
 
 function createDiv(id, className, appendPlace) {
@@ -77,6 +86,12 @@ function createContent(section, section_id, QnA) {
 	let question = document.createElement("label");
 	question.innerHTML = QnA.question;
 	section.append(question);
+/* 	console.log("tag", section, "id", section.id);
+	console.log("id", section_id); */
+
+
+
+
 	//Div BtnWrapper
 	let div = createDiv(section.id + "Div", "answer_wrapper", section);
 	//===============NEW
@@ -86,6 +101,10 @@ function createContent(section, section_id, QnA) {
 			const userAnswer = event.target.classList[0];
 			console.log(userAnswer);
 			recordUserAnswerToArray(userAnswer);
+			window.location.href = "#section" + (section_id + 1).toString();
+			console.log("#section" + (section_id + 1).toString())
+			
+			/* console.log(section.id) */
 		}
 	});
 
@@ -95,10 +114,15 @@ function createContent(section, section_id, QnA) {
 		let button = createBtn(
 			// section.id + "button", // this creates not unique IDs for buttons, so now all buttons in one section have the same IDs
 			QnA.answers[i],
-			"#section" + (section_id + 1).toString(),
+			// "#section" + (section_id + 1).toString(),
 			// "answers"
-			`${answerCategory[i]} answers`
+			`${answerCategory[i]} answers`,
+			//btnSectionId
+			section.id
 		);
+
+/* 		console.log(section_id, "__id");
+		console.log(section.id, ".id"); */
 		div.append(button);
 	}
 }
