@@ -1,16 +1,17 @@
 const sectionStart = document.getElementById("section_start");
 const bodyTag = document.querySelector("body");
-
+const h1 = document.createElement("h1");
+h1.innerHTML = "Hallowween-o-rama Quiz!"
+sectionStart.append(h1);
 const startButton = document.createElement("button");
 
 function createForm() {
-	let h1 = document.createElement("h1");
 	let label = document.createElement("label");
 	let form = document.createElement("form");
 	let input = document.createElement("input");
 
 	//DONE Add label
-	h1.innerHTML = "Hallowween-o-rama Quiz!"
+	
 	label.innerHTML = "Add your name:";
 	label.htmlFor = "userNameInput";
 	form.id = "inputForm";
@@ -20,11 +21,11 @@ function createForm() {
 	input.id = "userNameInput";
 	input.name = "userNameInput";
 
-	startButton.innerHTML = "start the quiz";
+	startButton.innerHTML = "Start the quiz";
 	startButton.type = "submit";
 	startButton.id = "startButton";
 
-	form.append(h1);
+	
 	form.append(label);
 	form.append(input);
 	form.append(startButton);
@@ -193,10 +194,10 @@ function createSubmitResultsSection() {
 	let section = createSection("section9");
 
 	//Text "Click this btn to see your results"
-	let showResultsText = document.createElement("label");
+	/* let showResultsText = document.createElement("label");
 	showResultsText.innerHTML = "Click this button to show your result";
 	showResultsText.className = "resultsH1";
-	section.append(showResultsText);
+	section.append(showResultsText); */
 
 	//Div
 	let div = createDiv("section9Div", "sectionSubmit", section);
@@ -204,7 +205,7 @@ function createSubmitResultsSection() {
 
 	//btn "submit"
 	let resultbutton = createBtn(
-		"SHOW ME MY RESULTS!",
+		"Show me the results!",
 		"resultbutton",
 		"resultbutton"
 	);
