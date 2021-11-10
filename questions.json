@@ -1,39 +1,39 @@
 {
 	"1": {
 		"question": "Best way to travel?",
-		"answers": ["Train", "Walking", "Car", "Boat"]
+		"answers": ["Train 🚂", "Walking🚶‍♂️", "Car🚙", "Boat🛳"]
 	},
 	"2": {
 		"question": "Where would you like to travel to?",
-		"answers": ["Texas", "Las Vegas", "California", "Rural Sweden"]
+		"answers": ["Texas 🤠", "Las Vegas 🎰", "California 🌴", "Rural Sweden 🇸🇪"]
 	},
 	"3": {
 		"question": "Favorite vacation spot?",
-		"answers": ["Korea", "Home", "Sommarstuga", "NYC"]
+		"answers": ["Korea 🇰🇷", "Home 🏠", "Sommarstuga🏡", "NYC 🗽"]
 	},
 	"4": {
 		"question": "Best Time of the Year?",
-		"answers": ["Spring", "Fall", "Winter", "Summer"]
+		"answers": ["Spring 🌱", "Fall 🍁", "Winter ⛄️", "Summer 🌞"]
 	},
 	"5": {
 		"question": "Do you like horror films?",
-		"answers": ["Yes", "No", "A bit", "Only psychological"]
+		"answers": ["Yes 🙌", "No 🙅", "A bit 🤏", "Only psychological 🧐"]
 	},
 	"6": {
 		"question": "What would you eat/drink?",
 		"answers": [
-			"Space food",
-			"Brain-shaped jelly",
-			"A witch potion",
-			"Cherry pie and a damn good coffee"
+			"Space food 👩‍🚀",
+			"Brain-shaped jelly 🧠",
+			"A witch potion 🧙",
+			"Cherry pie and a damn good coffee 🥧☕️"
 		]
 	},
 	"7": {
 		"question": "What to do on a day off?",
-		"answers": ["Watch movies", "Play with dolls", "Play monopoly", "Puzzles"]
+		"answers": ["Watch movies 🍿", "Play with dolls 🪆", "Play monopoly 🎲", "Puzzles 🧩"]
 	},
 	"8": {
 		"question": "Who is more good-looking?",
-		"answers": ["Clown", "Zombie", "Uncle Fester", "Alien"]
+		"answers": ["Clown 🤡", "Zombie 🧟‍♀️", "Uncle Fester 🕴🏻", "Alien 👽"]
 	}
 }

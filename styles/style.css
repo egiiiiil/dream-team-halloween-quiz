@@ -8,6 +8,10 @@ h2 {
   font-family: "Creepster", cursive;
 }
 
+.resultbutton {
+  font-family: "Creepster", cursive;
+}
+
 h1 {
   color: #ff9900;
   font-size: 4em;
@@ -25,8 +29,15 @@ label,
 button {
   font-family: "Roboto", sans-serif;
   font-size: 1.5em;
+  cursor: pointer;
+  border: none;
 }
 
+@media screen and (max-width: 481px) {
+  button {
+    font-size: 1em;
+  }
+}
 label {
   color: #fff;
 }
@@ -80,7 +91,6 @@ label {
   margin-top: 1rem;
   width: 100%;
   height: 2em;
-  padding: 1rem;
   border-radius: 15px;
 }
 
@@ -92,7 +102,6 @@ label {
   font-size: 2rem;
   margin-top: 1rem;
   width: 25rem;
-  padding: 1rem;
   border-radius: 15px;
 }
 
@@ -115,11 +124,31 @@ section {
 
 .answers {
   background: white;
-  width: 9rem;
-  height: 9rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 15px;
 }
 
+@media screen and (max-width: 521px) {
+  .answer_wrapper {
+    grid-gap: 0.5rem;
+  }
+
+  .answers {
+    width: 12rem;
+    height: 12rem;
+  }
+}
+@media screen and (max-width: 481px) {
+  .answer_wrapper {
+    grid-gap: 0.5rem;
+  }
+
+  .answers {
+    width: 9rem;
+    height: 9rem;
+  }
+}
 a {
   border-radius: 15px;
 }
@@ -142,6 +171,21 @@ body {
   width: 100%;
   padding: 1rem;
   border-radius: 15px;
+}
+
+#section10-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+#section10-wrapper #posterDiv img {
+  width: 100%;
+}
+
+@media screen and (max-width: 481px) {
+  #section10-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
